@@ -47,10 +47,8 @@ let
           src = let
             url =
               "https://download.nvidia.com/XFree86/Linux-x86_64/${version}/NVIDIA-Linux-x86_64-${version}.run";
-          in if sha256 != null then
-            fetchurl { inherit url sha256; }
-          else
-            builtins.fetchurl url;
+          in
+            fetchurl { inherit url sha256; };
           useGLVND = true;
         });
 
